@@ -1,0 +1,78 @@
+.game2024_box {
+    font-family: "Noto Sans TC", "NotoSansTC", "Microsoft JhengHei", sans-serif;
+    backdrop-filter: blur(5px) brightness(30%);
+}
+
+.game2024_box .swal2-popup {
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    border-radius: 20px;
+    padding: 60px 0;
+}
+
+.game2024_box .swal2-close {
+    position: absolute;
+    top: -60px;
+    right: -24px;
+    color: #FFFFFF;
+}
+
+.game2024_box .swal2-close:hover {
+    color: #FFFFFF;
+}
+
+.game2024_box .swal2-actions {
+    margin: auto;
+}
+
+.game2024_box .swal2-html-container {
+    padding: 0;
+}
+
+.game2024_box .swal2-confirm {
+    width: clamp(230px, 47vw, 500px);
+    height: 60px;
+    background: linear-gradient(180deg, #FF69F3 0%, #6400FF 100%);
+    border-radius: 50px;
+    font-size: clamp(1.125rem, 1.0795rem + 0.1942vw, 1.3125rem);
+    letter-spacing: 8px;
+    padding-top: 10px;
+}
+
+.game2024_box .swal2-confirm:hover {
+    background-image: linear-gradient(180deg, #FF69F3 0%, #6400FF 100%) !important;
+    filter: brightness(110%);
+}
+
+.game2024_box .swal2-confirm:focus-visible {
+    box-shadow: none;
+}
+
+.game2024_box_title {
+    width: clamp(237px, 72vw, 506px);
+    display: block;
+    margin: auto;
+}
+
+.game2024_box_desc {
+    margin: 20px auto 50px;
+    width: clamp(200px, 68vw, 480px);
+    font-size: clamp(1rem, 0.9697rem + 0.1294vw, 1.125rem);
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+    .game2024_box .swal2-close {
+        top: -40px;
+        right: -40px;
+    }
+
+    .game2024_box .swal2-confirm {
+        height: 50px;
+    }
+
+    .game2024_box_desc {
+        margin: 20px auto 60px;
+    }
+}

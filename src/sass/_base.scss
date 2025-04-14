@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+// 隱藏 recaptcha 圖示
+.grecaptcha-badge {
+    opacity: 0;
+    pointer-events: none;
+}
+
+// sweetalert2 彈窗
+.swal2-container {
+    backdrop-filter: blur(10px) brightness(80%);
+    z-index: 100;
+}
+
+.swal2-popup {
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    border-radius: 20px;
+    padding: 32px;
+    background: linear-gradient(180deg, #D50DE0 0%, rgba(10, 0, 255, 0) 20.2%, rgba(10, 0, 255, 0.075) 87.2%, #D50DE0 100%);
+}
+
+.swal2-close {
+    position: absolute;
+    top: -60px;
+    right: -24px;
+    color: #FFFFFF;
+    @media (min-width: 768px) {
+        top: -40px;
+        right: -40px;
+    }
+    &:hover {
+        color: #FFFFFF;
+    }
+}
+
+.swal2-html-container {
+    font-size: 16px !important;
+    color: #FFFF29 !important;
+}
+
+.swal2-actions {
+    margin: auto;
+}
+
+.swal2-confirm {
+    width: 230px;
+    height: 60px;
+    background: linear-gradient(180deg, #FF69F3 0%, #6400FF 100%);
+    border-radius: 50px;
+    font-size: clamp(1.125rem, 1.0795rem + 0.1942vw, 1.3125rem);
+    letter-spacing: 4px;
+    padding-top: 10px;
+    margin: 32px 0 0;
+
+    @media (min-width: 768px) {
+        height: 50px;
+    }
+}
+
+.swal2-confirm:hover {
+    background-image: linear-gradient(180deg, #FF69F3 0%, #6400FF 100%) !important;
+    filter: brightness(110%);
+}
+
+.swal2-confirm:focus-visible {
+    box-shadow: none;
+}
+
+.swal2-title {
+    font-size: clamp(1.125rem, 1.0795rem + 0.1942vw, 1.3125rem);
+    font-weight: 500;
+    color: $gray-100;
+    padding: 32px 0 0;
+    line-height: 1.5;
+}

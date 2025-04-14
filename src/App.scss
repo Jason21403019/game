@@ -1,0 +1,1743 @@
+@import "sass/var";
+@import "sass/reset";
+@import "sass/base";
+
+body {
+    background-color: $gray-900;
+}
+
+#root {
+    overflow-x: hidden;
+}
+
+// Header
+.header {
+    width: 100%;
+    background-color: $color-purple;
+    padding: 8px 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    .header_container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+
+        .logo_wrap {
+            display: flex;
+            gap: 12px;
+            margin-top: -8px;
+
+            .logo_udn {
+                width: clamp(100px, 27vw, 160px);
+            }
+
+            .logo_game {
+                width: clamp(80px, 21vw, 132px);
+            }
+        }
+
+        .header_wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .menu {
+                width: 100%;
+                height: 363px;
+                color: $gray-100;
+                background: $circle-purple;
+                border-radius: 0 0 20px 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 56px 16px 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                transition: all .5s ease-in;
+
+                .menu_item {
+                    width: 70%;
+                    color: $gray-100;
+                    font-size: 22px;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    transition: all .3s .5s linear;
+                    padding: 24px 0;
+                    text-align: center;
+
+                    &:nth-child(1),
+                    &:nth-child(2) {
+                        border-bottom: 1px solid #FFFFFF80;
+                    }
+                }
+
+                .menu_deco {
+                    margin-top: 20px;
+                    transition: all .3s .5s linear;
+                }
+            }
+
+            .icon {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                position: relative;
+                gap: 12px;
+
+                .icon_fb,
+                .icon_line {
+                    width: clamp(30px, 6vw, 36px);
+                    vertical-align: middle;
+                    user-select: none;
+                }
+
+                .menu_ham {
+                    img {
+                        width: clamp(30px, 6vw, 36px);
+                        vertical-align: middle;
+                    }
+                }
+
+                .menu_close {
+                    position: absolute;
+                    right: 0;
+                    top: 200%;
+                    transition: all .3s .3s linear;
+
+                    img {
+                        width: clamp(30px, 6vw, 36px);
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+@media (min-width: 768px) {
+    .header {
+        height: 85px;
+        padding: 2px 0 0 16px;
+
+        .header_container {
+            .logo_wrap {
+                gap: 16px;
+                margin-top: 4px;
+
+                .logo_udn {
+                    width: 160px;
+                }
+
+                .logo_game {
+                    width: 132px;
+                }
+            }
+
+            .header_wrap {
+
+                .menu {
+                    height: 85px !important;
+                    background: none;
+                    flex-direction: row;
+                    padding: 0;
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    opacity: 1 !important;
+                    transition: none;
+
+                    .menu_item {
+                        width: 100%;
+                        font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
+                        opacity: 1 !important;
+                        padding: 0 16px 2px;
+                        pointer-events: auto !important;
+                        transition: none;
+
+                        &:nth-child(1),
+                        &:nth-child(2) {
+                            border-right: 2px solid $gray-100;
+                            border-bottom: none;
+                        }
+
+                        &:nth-child(2),
+                        &:nth-child(3) {
+                            color: $color-pink-light;
+                        }
+                    }
+
+                    .menu_deco {
+                        display: none;
+                    }
+                }
+
+                .icon {
+
+                    .icon_fb {
+                        width: 36px;
+                    }
+
+                    .icon_line {
+                        width: 36px;
+                        margin-right: 16px;
+                    }
+
+                    .menu_ham,
+                    .menu_close {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 首頁背景
+.container {
+    width: 100%;
+    background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/bg_deco.png&nt=1);
+}
+
+// 主視覺 banner
+#banner {
+    width: 100%;
+    position: relative;
+    margin-top: 40px;
+
+    .kv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $gray-900;
+
+        img {
+            width: 100%;
+            min-width: 646px;
+        }
+    }
+
+    .start_btn {
+        background: none;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: shine 1.5s linear infinite alternate;
+
+        img {
+            width: clamp(260px, 69vw, 400px);
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    #banner {
+        margin-top: 60px;
+
+        .kv {
+            img {
+                min-width: 1600px;
+            }
+        }
+
+        .start_btn {
+            top: 53%;
+
+            &:hover {
+                filter: brightness(115%) drop-shadow(0px 0px 30px rgba(98, 177, 255, 1));
+                animation: none;
+            }
+        }
+    }
+}
+
+@keyframes shine {
+    0% {
+        filter: brightness(115%) drop-shadow(0px 0px 30px rgba(98, 177, 255, 1));
+    }
+
+    50% {
+        filter: brightness(105%) drop-shadow(0px 0px 20px rgba(98, 177, 255, 1));
+    }
+
+    100% {
+        filter: brightness(95%) drop-shadow(0px 0px 10px rgba(98, 177, 255, 1));
+    }
+}
+
+// 背景漸層色塊
+.rect {
+    width: 100%;
+    height: 460px;
+    background: $bg-black;
+}
+
+// 活動1
+.act1 {
+    max-width: 1200px;
+    margin: -390px 16px 60px;
+    padding: 5px;
+    border-radius: 40px;
+    border: 2px solid $color-purple;
+    background-color: #00000099;
+    position: relative;
+
+    @media (min-width: 480px) {
+        width: 95%;
+        margin: -560px auto 60px;
+    }
+
+    .sign_count {
+        width: 100%;
+        height: 75px;
+        border-radius: 35px 35px 0 0;
+        background: $bg-purple-top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+
+        @media (min-width: 768px) {
+            height: 160px;
+            font-size: 24px;
+
+            .count_mb {
+                display: none;
+            }
+        }
+
+        .count_deco {
+            width: 23px;
+
+            @media (min-width: 768px) {
+                width: 45px;
+            }
+        }
+
+        span {
+            color: $gray-100;
+
+            b {
+                font-size: 24px;
+                font-weight: 700;
+
+                @media (min-width: 768px) {
+                    font-size: 36px;
+                }
+            }
+
+            a {
+                color: #FFFF29;
+                text-decoration: underline;
+            }
+        }
+
+        .count {
+            display: none;
+
+            @media (min-width: 768px) {
+                display: inline;
+            }
+        }
+
+    }
+
+    .act1_title {
+        width: 300px;
+        height: 229px;
+        background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/title_act1_mb.png&nt=1);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 24px auto 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: 768px) {
+            width: 703px;
+            height: 190px;
+            background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/title_act1_pad.png&nt=1);
+            margin: auto;
+        }
+
+        @media (min-width: 1200px) {
+            width: 989px;
+            height: 190px;
+            background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/title_act1.png&nt=1);
+        }
+
+        p {
+            width: 250px;
+            color: $gray-100;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 2;
+
+            @media (min-width: 768px) {
+                width: 100%;
+                text-align: center;
+                font-size: 18px;
+                padding-top: 28px;
+            }
+        }
+    }
+
+    .act1_prize {
+        padding-top: 32px;
+
+        @media (min-width: 768px) {
+            padding-top: 58px;
+        }
+
+        .subtitle {
+            width: 260px;
+            display: block;
+            margin: auto;
+
+            @media (min-width: 768px) {
+                width: 416px;
+            }
+        }
+
+        .prize_container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: auto;
+
+            @media (min-width: 768px) {
+                width: 640px;
+            }
+
+            @media (min-width: 1200px) {
+                width: 944px;
+            }
+
+            .prize_box {
+                padding-top: 58px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                position: relative;
+                margin: 0 20px;
+
+                .prize_pic {
+                    width: 240px;
+                    height: 240px;
+                    background: $circle-purple;
+                    border-radius: 120px;
+                    position: relative;
+
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+                .prize_text {
+                    color: $gray-100;
+                    text-align: center;
+                    line-height: 1.5;
+
+                    .item_title {
+                        color: $color-pink-dark;
+                        font-size: 25px;
+                        font-weight: 500;
+
+                        @media (min-width: 768px) {
+                            font-size: 30px;
+                        }
+                    }
+
+                    .item_note {
+                        font-size: 18px;
+                    }
+
+                    .item_info {
+                        font-size: 18px;
+
+                        @media (min-width: 768px) {
+                            font-size: 21px;
+                        }
+                    }
+
+                    .item_quota {
+                        font-size: 18px;
+
+                        @media (min-width: 768px) {
+                            font-size: 19px;
+                        }
+                    }
+                }
+            }
+
+            // 獎項未解鎖
+            .prize_locked {
+                filter: grayscale(1);
+            }
+
+            .lock_icon {
+                position: absolute;
+                top: 125px;
+            }
+        }
+    }
+
+    #sign_record {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+            padding-top: 108px;
+        }
+
+        .subtitle {
+            display: block;
+            margin: auto;
+        }
+
+        .sign_container {
+            width: 450px;
+            margin: auto;
+            padding-top: 48px;
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            @media (min-width: 1200px) {
+                width: 740px;
+            }
+
+            .sign_stamp {
+                width: 120px;
+                height: 120px;
+                border: 1px solid $color-pink;
+                border-radius: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .cards_left {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+            position: absolute;
+            bottom: 160px;
+            right: 80%;
+        }
+    }
+
+    .cards_right {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+            position: absolute;
+            bottom: 40px;
+            right: 0;
+        }
+    }
+}
+
+.frame_rect_bottom {
+    width: 100%;
+    height: 46px;
+    border-radius: 0 0 35px 35px;
+    background: $bg-purple-bottom;
+    margin-top: 24px;
+
+    @media (min-width: 768px) {
+        height: 160px;
+    }
+}
+
+.frame_rect_top {
+    width: 100%;
+    height: 35px;
+    border-radius: 35px 35px 0 0;
+    background: $bg-purple-top;
+    margin-bottom: 24px;
+
+    @media (min-width: 768px) {
+        height: 50px;
+    }
+}
+
+// 活動2
+#act2 {
+    max-width: 1200px;
+    margin: 0 16px 60px;
+    padding: 5px;
+    border-radius: 40px;
+    border: 2px solid $color-purple;
+    background-color: #00000099;
+
+    @media (min-width: 480px) {
+        width: 95%;
+        margin: 0 auto 60px;
+    }
+
+    .act2_title {
+        width: 300px;
+        height: 229px;
+        background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/title_act2_mb.png&nt=1);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: 768px) {
+            width: 703px;
+            height: 190px;
+            background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/title_act2_pad.png&nt=1);
+        }
+
+        @media (min-width: 1200px) {
+            width: 989px;
+            height: 190px;
+            background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/title_act2.png&nt=1);
+        }
+
+        p {
+            width: 250px;
+            color: $gray-100;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 2;
+
+            @media (min-width: 768px) {
+                width: 100%;
+                text-align: center;
+                font-size: 18px;
+                padding-top: 28px;
+            }
+        }
+    }
+
+    .btn_act2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 280px;
+        height: 60px;
+        border-radius: 15px;
+        background: $circle-purple;
+        margin: 40px auto 48px;
+
+        @media (min-width: 768px) {
+            width: 400px;
+            height: 85px;
+            border-radius: 20px;
+            margin: 45px auto 108px;
+
+            &:hover {
+                filter: brightness(110%);
+            }
+        }
+
+        span {
+            color: $gray-100;
+            font-size: 20px;
+            font-family: "GenJyuuGothic";
+            letter-spacing: 8px;
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.6));
+
+            @media (min-width: 768px) {
+                font-size: 30px;
+            }
+        }
+    }
+
+    .step_wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        gap: 8px;
+
+        @media (min-width: 768px) {
+            width: 95%;
+            max-width: 1000px;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0;
+        }
+
+        .act2_step {
+            width: 220px;
+
+            @media (min-width: 768px) {
+                width: 26%;
+                max-width: 260px;
+            }
+        }
+
+        .act2_arrow {
+            transform: rotate(90deg);
+
+            @media (min-width: 768px) {
+                transform: none;
+            }
+        }
+    }
+
+    .act2_prize {
+        padding-top: 58px;
+
+        @media (min-width: 768px) {
+            padding-top: 108px;
+        }
+
+        .subtitle {
+            width: 260px;
+            display: block;
+            margin: auto;
+
+            @media (min-width: 768px) {
+                width: 416px;
+            }
+        }
+
+        .prize_box {
+            padding-top: 58px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+
+            .prize_pic {
+                width: 240px;
+                height: 240px;
+                background: $circle-purple;
+                border-radius: 120px;
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .prize_text {
+                color: $gray-100;
+                text-align: center;
+                line-height: 1.5;
+
+                .item_info {
+                    font-size: 18px;
+
+                    @media (min-width: 768px) {
+                        font-size: 21px;
+                    }
+                }
+
+                .item_quota {
+                    font-size: 18px;
+
+                    @media (min-width: 768px) {
+                        font-size: 19px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 活動辦法
+#info {
+    max-width: 1200px;
+    margin: 0 16px;
+    padding: 5px;
+    border-radius: 40px;
+    border: 2px solid $color-purple;
+    background-color: #00000099;
+
+    @media (min-width: 480px) {
+        width: 95%;
+        margin: auto;
+    }
+
+    .subtitle {
+        width: 260px;
+        display: block;
+        margin: auto;
+        padding-bottom: 46px;
+
+        @media (min-width: 768px) {
+            width: 416px;
+            padding-bottom: 58px;
+        }
+    }
+
+    .info_list {
+        margin: 0 20px;
+        color: $gray-100;
+        font-size: 15px;
+        line-height: 2;
+        padding-left: 12px;
+
+        @media (min-width: 768px) {
+            width: 95%;
+            max-width: 760px;
+            margin: auto;
+            font-size: 18px;
+            padding-left: 24px;
+        }
+
+        li {
+            br {
+                @media (min-width: 768px) {
+                    display: none;
+                }
+            }
+
+            span {
+                color: $color-blue;
+                font-size: 16px;
+                font-weight: 700;
+
+                @media (min-width: 768px) {
+                    font-size: 24px;
+                }
+
+                span {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .info_content {
+        margin: 0 32px;
+        padding-top: 20px;
+
+        @media (min-width: 768px) {
+            width: 95%;
+            max-width: 760px;
+            margin: auto;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: $color-blue;
+            margin-bottom: 12px;
+
+            @media (min-width: 768px) {
+                font-size: 24px;
+            }
+
+            span {
+                color: $color-pink;
+            }
+        }
+
+        ul {
+            color: $gray-100;
+            font-size: 15px;
+            line-height: 2;
+            padding-left: 24px;
+            text-align: justify;
+
+            @media (min-width: 768px) {
+                font-size: 18px;
+                padding-left: 80px;
+            }
+
+            li {
+                span {
+                    color: $color-pink;
+                }
+
+                ul {
+                    list-style-type: disc;
+                    padding-left: 24px;
+                }
+            }
+        }
+    }
+}
+
+// 其他
+.others {
+    margin: 0 48px;
+    padding: 32px 0 40px;
+
+    @media (min-width: 768px) {
+        width: 90%;
+        max-width: 760px;
+        margin: auto;
+        padding: 62px 0 72px;
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: $color-pink;
+        margin-bottom: 12px;
+
+        @media (min-width: 768px) {
+            font-size: 24px;
+        }
+    }
+
+    ul {
+        color: $gray-100;
+        font-size: 15px;
+        line-height: 2;
+        padding-left: 24px;
+        text-align: justify;
+
+        @media (min-width: 768px) {
+            font-size: 18px;
+            padding-left: 80px;
+        }
+    }
+}
+
+// 個資聲明、注意事項按鈕
+.btn_wrap {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+
+    @media (min-width: 768px) {
+        gap: 50px;
+    }
+
+    .btn_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 140px;
+        height: 60px;
+        border-radius: 15px;
+        background: $circle-purple;
+
+        @media (min-width: 768px) {
+            width: 40%;
+            max-width: 400px;
+            height: 85px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+
+            &:hover {
+                filter: brightness(110%);
+            }
+        }
+
+        span {
+            display: inline-block;
+            color: $gray-100;
+            font-size: 20px;
+            font-family: "GenJyuuGothic";
+            letter-spacing: 8px;
+            margin-right: -8px;
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.6));
+
+            @media (min-width: 768px) {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+// 個資聲明、注意事項彈窗
+.note_box {
+    backdrop-filter: blur(10px) brightness(30%);
+    z-index: 100;
+
+    .swal2-popup {
+        width: 90%;
+        max-width: 1000px;
+        height: 530px;
+        border-radius: 20px;
+        background: linear-gradient(180deg, #D50DE0 0%, rgba(10, 0, 255, 0) 20.2%, rgba(10, 0, 255, 0.075) 87.2%, #D50DE0 100%);
+        position: relative;
+        padding: 40px 0 64px;
+
+        @media (min-width: 768px) {
+            padding: 80px 0;
+        }
+
+        .swal2-close {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            color: #FFFFFF;
+
+            @media (min-width: 768px) {
+                top: -40px;
+                right: -40px;
+            }
+
+            &:hover {
+                color: #FFFFFF;
+            }
+
+            &:focus-visible {
+                box-shadow: none;
+            }
+        }
+
+        .swal2-title {
+            font-size: clamp(1.125rem, 1.034rem + 0.3883vw, 1.5rem);
+            color: $color-blue;
+            text-align: left;
+            width: 90%;
+            max-width: 760px;
+            margin: 0 auto 12px;
+            padding: 0 24px;
+        }
+
+        .swal2-html-container {
+            padding: 0 24px;
+            width: 90%;
+            max-width: 760px;
+            margin: 0 auto;
+
+            @media (min-width: 768px) {
+                padding: 0 50px;
+            }
+
+            // scrollbar 樣式
+            &::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            &::-webkit-scrollbar-button {
+                display: block;
+                background-repeat: no-repeat;
+            }
+
+            &::-webkit-scrollbar-button:vertical:start:decrement {
+                width: 14px;
+                background-position: center;
+                background-image: url(/images/scrollbar_top.svg);
+            }
+
+            &::-webkit-scrollbar-button:vertical:start:increment {
+                display: none;
+            }
+
+            &::-webkit-scrollbar-button:vertical:end:decrement {
+                display: none;
+            }
+
+            &::-webkit-scrollbar-button:vertical:end:increment {
+                width: 14px;
+                background-position: center;
+                background-image: url(/images/scrollbar_bottom.svg);
+            }
+
+            &::-webkit-scrollbar-track {
+                margin: 4px 130px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 3px;
+                background-color: $gray-300;
+                height: 120px;
+            }
+
+            span,
+            p {
+                display: block;
+                color: $gray-100;
+                text-align: left;
+                font-size: clamp(0.875rem, 0.8143rem + 0.2589vw, 1.125rem);
+                line-height: 2;
+            }
+
+            p {
+                margin-bottom: 12px;
+            }
+
+            .description {
+                color: $gray-100;
+                text-align: left;
+                font-size: clamp(0.875rem, 0.8143rem + 0.2589vw, 1.125rem);
+                line-height: 2;
+                list-style-type: square;
+                padding-left: 24px;
+
+                li a {
+                    color: #FFFF29;
+                }
+            }
+        }
+    }
+}
+
+// 背景置底卡片圖
+.bg_bottom {
+    width: 100%;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+        margin-top: -108px;
+    }
+
+    img {
+        width: 100%;
+        min-width: 543px;
+    }
+}
+
+// footer
+.footer {
+    background-color: $color-purple;
+    padding: 16px 0;
+    margin-top: -2px;
+
+    @media (min-width: 768px) {
+        padding: 40px 0;
+    }
+
+    span {
+        display: block;
+        font-size: 11px;
+        color: $gray-100;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            font-size: 15px;
+        }
+    }
+}
+
+// Game 遊戲彈窗
+.game {
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(10px) brightness(30%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+    @media (min-width: 768px) {
+        padding: 0 12px;
+    }
+
+    .close_icon {
+        position: absolute;
+        top: -60px;
+        right: 0;
+        cursor: pointer;
+
+        @media (min-width: 768px) {
+            top: -40px;
+            right: -40px;
+        }
+    }
+
+    .game_view {
+        width: 90%;
+        max-width: 1000px;
+        background: linear-gradient(180deg, #D50DE0 0%, rgba(10, 0, 255, 0) 20.2%, rgba(10, 0, 255, 0.075) 87.2%, #D50DE0 100%);
+        border-radius: 20px;
+        position: relative;
+        // top: 36px;
+
+        // @media (min-width: 768px) {
+        //     top: 60px;
+        // }
+
+        .game_title {
+            width: 250px;
+            position: absolute;
+            top: -72px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 99;
+
+            @media (min-width: 768px) {
+                width: 430px;
+                top: -120px;
+            }
+        }
+    }
+}
+
+// Login
+.login {
+    width: 100%;
+    position: relative;
+    padding-bottom: 52px;
+
+    @media (min-width: 768px) {
+        padding-bottom: 100px;
+    }
+
+    .login_title {
+        font-size: clamp(1.125rem, 1.0036rem + 0.5178vw, 1.625rem);
+        font-weight: 500;
+        color: $gray-100;
+        letter-spacing: 1.5px;
+        margin: 64px 0 20px;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            margin: 110px 0 20px;
+        }
+    }
+
+    .login_wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            margin-bottom: 60px;
+        }
+
+        .login_email,
+        .login_udn {
+            width: 250px;
+            height: 71px;
+            background: none;
+
+            @media (min-width: 768px) {
+                width: 304px;
+                height: 86px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .login_email {
+            padding-top: 4px;
+        }
+    }
+
+    .login_btn {
+        display: block;
+        width: 160px;
+        height: 50px;
+        border-radius: 25px;
+        background: $circle-purple;
+        margin: auto;
+        filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
+
+        @media (min-width: 768px) {
+            width: 450px;
+
+            &:hover {
+                filter: brightness(105%);
+            }
+        }
+
+        span {
+            display: inline-block;
+            color: $gray-100;
+            font-size: 18px;
+            font-family: "GenJyuuGothic";
+            letter-spacing: 1.5px;
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.6));
+
+            @media (min-width: 768px) {
+                font-size: 21px;
+            }
+        }
+    }
+
+    .email_input {
+        width: 80%;
+        max-width: 459px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        margin: auto;
+        flex-direction: column;
+
+        @media (min-width: 768px) {
+            gap: 8px;
+            flex-direction: row;
+        }
+
+        #email {
+            width: 250px;
+            height: 50px;
+            font-size: 17px;
+            color: $gray-900;
+            border-radius: 100px;
+            border: none;
+            padding: 8px 16px 4px;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+
+
+            @media (min-width: 768px) {
+                width: 100%;
+                font-size: 21px;
+            }
+
+            &::placeholder {
+                color: $gray-500;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.161);
+            }
+
+            &:focus::placeholder {
+                color: transparent;
+            }
+        }
+
+        .login_btn {
+            width: 150px;
+        }
+    }
+
+    .udn_btn {
+        margin-bottom: 74px;
+
+        @media (min-width: 768px) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Cards
+.cards {
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    @media (min-height: 700px) {
+        height: auto;
+        overflow-y: hidden;
+    }
+
+    .cards_title {
+        font-size: clamp(1.125rem, 1.0795rem + 0.1942vw, 1.3125rem);
+        font-weight: 500;
+        color: $gray-100;
+        letter-spacing: 1.5px;
+        padding: 64px 0 20px;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            padding: 110px 0 36px;
+        }
+    }
+
+    .btn_wrap {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 8px 8px 16px;
+        transform: scale(0);
+        animation: zoomIn .7s 1.2s ease-in-out forwards;
+
+        @media (min-width: 768px) {
+            padding: 40px 0 30px;
+        }
+
+        .result_btn {
+            display: block;
+            width: 160px;
+            height: 60px;
+            border-radius: 50px;
+            background: $circle-purple;
+            filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
+
+            @media (min-width: 768px) {
+                width: 200px;
+                height: 50px;
+
+                &:hover {
+                    filter: brightness(105%);
+                }
+            }
+
+            span {
+                display: inline-block;
+                color: $gray-100;
+                font-size: 18px;
+                font-family: "GenJyuuGothic";
+                letter-spacing: 1.5px;
+                filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.6));
+                white-space: nowrap;
+
+                @media (min-width: 768px) {
+                    font-size: 21px;
+                }
+            }
+        }
+
+        .next_step {
+            position: relative;
+            margin-top: 40px;
+
+            @media (min-width: 768px) {
+                margin-top: 0;
+            }
+
+            .text {
+                position: absolute;
+                color: $gray-100;
+                text-align: center;
+                font-size: 12px;
+                letter-spacing: 1px;
+                bottom: 110%;
+                left: 0;
+                white-space: nowrap;
+                filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.8));
+
+                @media (min-width: 768px) {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+    }
+
+    .result_btn_wrap {
+        animation: zoomIn .7s ease-in-out forwards;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.card_deco {
+    position: relative;
+    padding-top: 54px;
+
+    @media (min-width: 768px) {
+        padding-top: 96px;
+    }
+
+    &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 640px;
+        border-radius: 20px;
+        opacity: 0.4;
+        background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://event.udn.com/bd_game2024/images/card_deco.webp&nt=1);
+        background-position: 45% 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: transparency 1.5s linear;
+
+        @media (min-height: 700px) {
+            height: 100%;
+        }
+    }
+}
+
+
+.cards_container {
+    width: 300px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: auto;
+
+    @media (min-width: 768px) {
+        width: 100%;
+        height: 100%;
+        gap: 30px;
+    }
+
+    a {
+        display: block;
+    }
+
+    .flip_card {
+        perspective: 1000px;
+        animation: flow 2s ease-in-out infinite;
+
+        .flipped {
+            width: 220px;
+            aspect-ratio: calc(125/164) !important;
+            transform: rotateY(-180deg);
+            transition: width 1.5s ease-in-out, transform 1.5s ease-in-out 2s;
+
+            @media (min-width: 768px) {
+                width: 240px;
+            }
+        }
+    }
+
+    .no_flow {
+        animation: none;
+    }
+
+    .flip_card_inner {
+        width: 125px;
+        aspect-ratio: calc(125/284);
+        text-align: center;
+        position: relative;
+        transform-style: preserve-3d;
+
+        @media (min-width: 768px) {
+            width: clamp(125px, 17vw, 171px);
+        }
+
+        .flip_card_front,
+        .flip_card_back {
+            position: absolute;
+            top: 0;
+            right: 0;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .flip_card_front {
+            width: 125px;
+            cursor: pointer;
+
+            @media (min-width: 768px) {
+                width: clamp(125px, 17vw, 171px);
+            }
+        }
+
+        .flip_card_front_bigger {
+            width: 220px;
+            transition: all 1.5s ease-in-out .5s;
+
+            @media (min-width: 768px) {
+                width: 240px;
+            }
+        }
+
+        .flip_card_back {
+            transform: rotateY(180deg);
+            position: relative;
+
+            .result_info {
+                color: $gray-100;
+                line-height: 1.5;
+                padding: 12px 0;
+                filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.8));
+
+                @media (min-width: 768px) {
+                    width: 300px;
+                    text-align: left;
+                    position: absolute;
+                    top: 50%;
+                    left: 110%;
+                    transform: translateY(-50%);
+                }
+
+                p {
+                    span {
+                        color: #FFFF29;
+                    }
+                }
+
+                .result_info_prize {
+                    font-size: clamp(0.9375rem, 0.892rem + 0.1942vw, 1.125rem);
+                    font-weight: 500;
+                    padding-bottom: 8px;
+
+                    @media (min-width: 768px) {
+                        padding-bottom: 40px;
+                    }
+                }
+
+                .result_info_note {
+                    font-size: clamp(0.8125rem, 0.7822rem + 0.1294vw, 0.9375rem);
+                }
+            }
+        }
+    }
+
+    .flip_card:nth-child(1),
+    .flip_card:nth-child(2) {
+        .flip_card_inner {
+            aspect-ratio: calc(125/164);
+
+            @media (min-width: 768px) {
+                aspect-ratio: calc(125/284);
+            }
+        }
+    }
+
+    .disappear {
+        display: none;
+    }
+
+}
+
+@keyframes transparency {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes flow {
+    0% {
+        transform: translateY(0);
+        filter: drop-shadow(0px 0px 10px rgba(98, 177, 255, 0));
+    }
+
+    50% {
+        transform: translateY(2%);
+        filter: drop-shadow(0px 0px 10px rgba(98, 177, 255, 1));
+    }
+
+    100% {
+        transform: translateY(0);
+        filter: drop-shadow(0px 0px 10px rgba(98, 177, 255, 0));
+    }
+}
+
+// SignSuccess
+.success_view {
+    width: 80%;
+    max-width: 406px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $gray-100;
+    text-align: center;
+
+    .success_title {
+        font-size: clamp(1.125rem, 0.9733rem + 0.6472vw, 1.75rem);
+        padding-bottom: 24px;
+
+        @media (min-width: 768px) {
+            padding-bottom: 28px;
+        }
+    }
+
+    .success_icon {
+        width: clamp(223px, 60vw, 300px);
+    }
+
+    .success_note {
+        font-size: clamp(0.8125rem, 0.7367rem + 0.3236vw, 1.125rem);
+        line-height: 1.5;
+        filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.8));
+    }
+
+    .channel_btn {
+        display: block;
+        width: 296px;
+        height: 60px;
+        border-radius: 50px;
+        background: $circle-purple;
+        filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
+        margin-top: 33px;
+
+        @media (min-width: 768px) {
+            width: 280px;
+            height: 50px;
+            margin-top: 25px;
+
+            &:hover {
+                filter: brightness(105%);
+            }
+        }
+
+        span {
+            display: inline-block;
+            color: $gray-100;
+            font-size: 18px;
+            font-family: "GenJyuuGothic";
+            letter-spacing: 1.5px;
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.6));
+
+            @media (min-width: 768px) {
+                font-size: 21px;
+            }
+        }
+    }
+}
+
+// Loading
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px) brightness(10%);
+    z-index: 101;
+    color: $color-pink;
+    font-weight: 500;
+    font-size: 24px;
+
+    p {
+        margin-top: 16px;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+}

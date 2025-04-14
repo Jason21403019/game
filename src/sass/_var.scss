@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap");
+@font-face {
+    font-family: "NotoSansTC";
+    src: url(/font/NotoSansTC-Regular.ttf) format("truetype");
+}
+@font-face {
+    font-family: "NotoSansTC";
+    src: url(/font/NotoSansTC-Medium.ttf) format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "NotoSansTC";
+    src: url(/font/NotoSansTC-Bold.ttf) format("truetype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "GenJyuuGothic";
+    src: url(/font/GenJyuuGothic-P-Medium.ttf) format("truetype");
+}
+
+//color
+$gray-900: #000000;
+$gray-800: #333333;
+$gray-700: #555555;
+$gray-600: #7E7E7E;
+$gray-500: #999999;
+$gray-400: #c7c7c7;
+$gray-300: #dedede;
+$gray-200: #f7f7f7;
+$gray-100: #ffffff;
+$color-purple: #7E00FF;
+$color-pink: #FC67F3;
+$color-pink-light: #FFBCED;
+$color-pink-dark: #D50DE0;
+$color-blue: #62B1FF;
+$circle-purple: linear-gradient(180deg, #FF69F3 0%, #6400FF 100%);
+$bg-purple-top: linear-gradient(180deg, #FF69F3 0%, #8516FC 39.9%, rgba(100, 0, 255, 0) 100%);
+$bg-purple-bottom: linear-gradient(0deg, #FF69F3 0%, #8516FC 39.9%, rgba(100, 0, 255, 0) 100%);
+$bg-black: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #000000 72.7%);
